@@ -37,3 +37,20 @@ for ($n=0; $n<=1; $n++){
 echo($n. "! = " . factorial($n) . "\n");
 }                            
 ?>
+4) Числа Фибоначчи.(Кролики)
+<?php
+function fibonacci($n)
+{
+    if($n < 2) {
+        yield $n;
+    }
+    $x = fibonacci($n-1);
+    $y = fibonacci($n-2);
+    yield $x->current() + $y->current();
+}
+for($i = 0; $i <= 10; $i++) {
+    $x = fibonacci($i);
+    $value = $x->current();
+    echo $i , ' -> ' , $value, PHP_EOL;
+}
+?>
